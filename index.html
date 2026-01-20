@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I'm Sorry 🌹</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(to bottom, #ffe6eb, #fff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+    }
+    .content {
+        text-align: center;
+        z-index: 2;
+        animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+        font-size: 50px;
+        color: #c9184a;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 20px;
+        color: #444;
+        margin: 5px 0;
+    }
+    img {
+        width: 220px;
+        margin-top: 20px;
+    }
+
+    /* Falling roses */
+    .rose {
+        position: absolute;
+        top: -50px;
+        font-size: 24px;
+        animation: fall linear infinite;
+        color: #e63946;
+    }
+    @keyframes fall {
+        to {
+            transform: translateY(110vh);
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+</style>
+</head>
+<body>
+
+<div class="content">
+    <h1>Sorry Komal 🌹</h1>
+    <p>मुझसे गलती हो गई</p>
+    <p>Please forgive me</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Rose_flower.jpg" alt="Rose">
+</div>
+
+<!-- Background Music -->
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function createLove() {
+        const item = document.createElement("div");
+        item.classList.add("rose");
+
+        // Randomly choose rose or heart
+        item.innerHTML = Math.random() > 0.5 ? "🌹" : "❤️";
+
+        item.style.left = Math.random() * 100 + "vw";
+        item.style.animationDuration = (3 + Math.random() * 5) + "s";
+        item.style.fontSize = (20 + Math.random() * 20) + "px";
+
+        document.body.appendChild(item);
+
+        setTimeout(() => {
+            item.remove();
+        }, 8000);
+    }
+
+    setInterval(createLove, 250);
+</script>
+
+
+</body>
+</html>
